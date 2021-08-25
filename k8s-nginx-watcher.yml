@@ -10,10 +10,10 @@ spec:
     image: Prasannakumar-kumta/k8s-demo
     ports:
     - name: html
-      containerPort: 3000
+      containerPort: 8080
   containers:
   - name: afakharany/watcher
     image: Prasannakumar-kumta/k8s-demo
     ports:
     - name: nodejs-port
-      containerPort: 3060
+      containerPort: 3000
