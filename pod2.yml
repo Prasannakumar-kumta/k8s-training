@@ -1,18 +1,19 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod2
-  labels:
-    app: helloworld
+  name: mc1
 spec:
+  volumes:
+  - name: html
+    emptyDir: {}
   containers:
-  - name: nginx
-    image: Prasannakumar-kumta/k8s-demo
-    ports:
+  - name: 1st
+    image: nginx
+    volumeMounts:
     - name: html
-      containerPort: 8080
-  - name: afakharany/watcher
-    image: Prasannakumar-kumta/k8s-demo
-    ports:
-    - name: nodejs-port
-      containerPort: 3000
+      mountPath: /usr/share/nginx/html
+  - name: 2nd
+    image: debian
+    volumeMounts:
+    - name: html
+      mountPath: /html
